@@ -5,20 +5,22 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_4flbx")
-topSpeed = 15.0
-jumpStrength = 20.0
-gravityForce = 50.0
-accel = 50.0
+topSpeed = 30.0
+jumpStrength = 30.0
+gravityForce = 80.0
+accel = 500.0
+dashSpeed = 50.0
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="PlayerModel" type="CSGCylinder3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9335804, 0.35836795, 0, -0.35836795, 0.9335804, 0, 0, 0)
-spring_length = 8.0
+spring_length = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
 current = true

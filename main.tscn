@@ -27,10 +27,7 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18823242, 0, 0.06933594)
-size = Vector3(16.376465, 1, 16.542969)
-
-[node name="Player" parent="CSGCombiner3D" instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005540371, 1.5, -0.04764843)
+size = Vector3(45.341797, 1, 38.129883)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ig7tw")
@@ -38,3 +35,6 @@ environment = SubResource("Environment_ig7tw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.94916755, 0.095999114, -0.299775, 0.31477123, -0.28947774, 0.90394783, -1.377041e-08, -0.95235854, -0.3049807, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005540371, 1.5, -0.04764843)
