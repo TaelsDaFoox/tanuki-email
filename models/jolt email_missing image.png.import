@@ -2,16 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj0qewo8y07q0"
-path="res://.godot/imported/greentile.png-625702cc6cc5fe6ef48263a9b5541f55.ctex"
+uid="uid://dehllwjstg2l0"
+path="res://.godot/imported/jolt email_missing image.png-8910567a8c3fb0cdeacda2da8a351675.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "12a7e05f863484194856a217018bf9b8"
 }
 
 [deps]
 
-source_file="res://textures/greentile.png"
-dest_files=["res://.godot/imported/greentile.png-625702cc6cc5fe6ef48263a9b5541f55.ctex"]
+source_file="res://models/jolt email_missing image.png"
+dest_files=["res://.godot/imported/jolt email_missing image.png-8910567a8c3fb0cdeacda2da8a351675.ctex"]
 
 [params]
 

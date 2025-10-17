@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlk2axckfood2"]
+
+[ext_resource type="PackedScene" uid="uid://carrs7msyshkv" path="res://models/jolt email.glb" id="1_yl76u"]
+
+[node name="jolt email" instance=ExtResource("1_yl76u")]
+
+[node name="Dealmaker" parent="Armature/Skeleton3D" index="1"]
+visible = false

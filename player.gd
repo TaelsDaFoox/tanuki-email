@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if input_dir:
 		#move_angle = lerp_angle(move_angle,input_dir.angle()+camPivot.rotation.y,delta*10)
 		move_angle = input_dir.angle()-camPivot.rotation.y
+		playermodel.rotation.y=lerp_angle(playermodel.rotation.y,-move_angle+PI/2,delta*20)
 	momentum = move_toward(momentum, input_dir.length()*topSpeed,accel*delta)
 	if astralprojecting:
 		if currentdashtype==0:
@@ -74,7 +75,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					await get_tree().create_timer(0.25).timeout
 				get_parent().remove_child(playermodel)
 				add_child(playermodel)
-				playermodel.position=Vector3.ZERO
+				playermodel.position=Vector3(0,-0.3,0)
 				momentum=topSpeed
 				if currentdashtype==1:
 					velocity.y=dashSpeed/3
