@@ -17,7 +17,8 @@ var currentdashtype :=0
 var input_dir = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	input_dir = Input.get_vector("left","right","forward","backward",0.5)
+	if not astralprojecting:
+		input_dir = Input.get_vector("left","right","forward","backward",0.5)
 	if input_dir:
 		#move_angle = lerp_angle(move_angle,input_dir.angle()+camPivot.rotation.y,delta*10)
 		move_angle = input_dir.angle()-camPivot.rotation.y
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y=0
 		else:
 			momentum=0
-			velocity.y=dashSpeed
+			velocity.y=dashSpeed/2
 	velocity.x=momentum*cos(move_angle)
 	velocity.z=momentum*sin(move_angle)
 	
@@ -41,6 +42,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y-=gravityForce*delta
 	
 	move_and_slide()
+	
+	if position.y<-25:
+		position=Vector3(0,1,0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -64,11 +68,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_parent().add_child(playermodel)
 				playermodel.position = position
 				astralprojecting=true
-				await get_tree().create_timer(0.25).timeout
+				if currentdashtype==1:
+					await get_tree().create_timer(0.2).timeout
+				else:
+					await get_tree().create_timer(0.25).timeout
 				get_parent().remove_child(playermodel)
 				add_child(playermodel)
 				playermodel.position=Vector3.ZERO
 				momentum=topSpeed
 				if currentdashtype==1:
 					velocity.y=dashSpeed/3
+					momentum=0
+				else:
+					velocity.y=10
 				astralprojecting=false

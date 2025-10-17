@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bq8hs56u38lml"]
+
+[ext_resource type="Texture2D" uid="uid://cj0qewo8y07q0" path="res://textures/greentile.png" id="1_8nqy1"]
+[ext_resource type="Texture2D" uid="uid://bwi6l2uq0nffg" path="res://textures/green digitex alpha.png" id="2_8nqy1"]
+
+[resource]
+albedo_color = Color(0.8153955, 0.8153955, 0.8153955, 1)
+albedo_texture = ExtResource("1_8nqy1")
+metallic_specular = 0.0
+emission_energy_multiplier = 0.25
+emission_texture = ExtResource("2_8nqy1")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true

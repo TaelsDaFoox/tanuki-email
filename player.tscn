@@ -7,7 +7,7 @@
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_4flbx")
-topSpeed = 30.0
+topSpeed = 40.0
 jumpStrength = 30.0
 gravityForce = 80.0
 accel = 500.0

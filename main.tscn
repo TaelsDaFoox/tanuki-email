@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://br78n6kinag2"]
+[gd_scene load_steps=7 format=3 uid="uid://br78n6kinag2"]
 
+[ext_resource type="Material" uid="uid://bq8hs56u38lml" path="res://materials/green digital.tres" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://di3par7cwmjs2" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cs6om5ypmgp20" path="res://grid.png" id="2_0xm2m"]
 
@@ -28,6 +29,27 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18823242, 0, 0.06933594)
 size = Vector3(45.341797, 1, 38.129883)
+material = ExtResource("1_h2yge")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1472168, 0, 35.648464)
+size = Vector3(24.479492, 1, 24.30481)
+material = ExtResource("1_h2yge")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.722656, 1.8517761, 58.633453)
+size = Vector3(50.21924, 4.7035522, 24.30481)
+material = ExtResource("1_h2yge")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.663208, 9.881503, 81.3673)
+size = Vector3(26.338135, 20.763006, 21.359936)
+material = ExtResource("1_h2yge")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.694054, 9.930532, 140.77351)
+size = Vector3(26.338135, 20.861057, 13.325449)
+material = ExtResource("1_h2yge")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ig7tw")
@@ -38,3 +60,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005540371, 1.5, -0.04764843)
+topSpeed = 30.0
+accel = 150.0
+dashSpeed = 80.0
