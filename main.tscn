@@ -19,7 +19,7 @@ sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
 background_mode = 2
 sky = SubResource("Sky_0xm2m")
 ambient_light_source = 2
-ambient_light_color = Color(0.18405652, 0.5996789, 0.58423173, 1)
+ambient_light_color = Color(0.40621886, 0.99382704, 0.70929706, 1)
 ambient_light_energy = 0.96
 
 [node name="Main" type="Node3D"]
@@ -43,22 +43,22 @@ size = Vector3(50.21924, 4.7035522, 24.30481)
 material = ExtResource("1_h2yge")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.663208, 9.881503, 81.3673)
-size = Vector3(26.338135, 20.763006, 21.359936)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.663208, 7.7920923, 81.3673)
+size = Vector3(26.338135, 16.584185, 21.359936)
 material = ExtResource("1_h2yge")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.694054, 9.930532, 138.69887)
-size = Vector3(26.338135, 20.861057, 17.474735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.694054, 7.7797823, 138.69887)
+size = Vector3(26.338135, 16.559557, 17.474735)
 material = ExtResource("1_h2yge")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.68961, 28.95882, 162.79106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.68961, 26.329323, 162.79106)
 size = Vector3(23.440529, 10.045275, 18.492802)
 material = ExtResource("1_h2yge")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.03847, 28.95882, 162.79106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.03847, 26.329323, 162.79106)
 size = Vector3(13.954493, 10.045275, 18.492802)
 material = ExtResource("1_h2yge")
 

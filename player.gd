@@ -9,6 +9,7 @@ var move_angle : = 0.0
 @onready var camPivot = $SpringArm3D
 @export var mouseSensitivity := 0.005
 @onready var playermodel = $PlayerModel
+@onready var animator = $PlayerModel/AnimationPlayer
 var astralprojecting = false
 var dashesleft := 2
 #var dashing := false
@@ -17,8 +18,21 @@ var currentdashtype :=0
 var input_dir = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	if animator:
+		if velocity.length()>0.1:
+			animator.play("Walk",0.2,velocity.length()/8)
+		else:
+			animator.play("Idle",0.2,1)
+	var lerpdist = 5
 	if not astralprojecting:
 		input_dir = Input.get_vector("left","right","forward","backward",0.5)
+		playermodel.scale.y = move_toward(playermodel.scale.y,0.6,delta*lerpdist)
+		playermodel.scale.x = move_toward(playermodel.scale.x,0.6,delta*lerpdist)
+		playermodel.scale.z = move_toward(playermodel.scale.z,0.6,delta*lerpdist)
+	else:
+		playermodel.scale.y = move_toward(playermodel.scale.y,1.2,delta*lerpdist)
+		playermodel.scale.x = move_toward(playermodel.scale.x,0,delta*lerpdist)
+		playermodel.scale.z = move_toward(playermodel.scale.z,0,delta*lerpdist)
 	if input_dir:
 		#move_angle = lerp_angle(move_angle,input_dir.angle()+camPivot.rotation.y,delta*10)
 		move_angle = input_dir.angle()-camPivot.rotation.y
