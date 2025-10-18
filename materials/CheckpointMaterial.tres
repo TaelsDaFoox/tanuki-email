@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cw81sx3ocgsed"]
+
+[ext_resource type="Texture2D" uid="uid://b874hun0u7bt7" path="res://models/jolt email_old jolt tex updated.png" id="1_bxwe4"]
+
+[resource]
+transparency = 1
+blend_mode = 4
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.40392157)
+albedo_texture = ExtResource("1_bxwe4")
+texture_filter = 0

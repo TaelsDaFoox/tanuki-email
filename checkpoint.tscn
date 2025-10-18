@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6kyfmnps58gr"]
+
+[ext_resource type="PackedScene" uid="uid://byu1jfyxtqrtm" path="res://models/savething.glb" id="1_luqgl"]
+[ext_resource type="Script" uid="uid://co37ts7gf7i74" path="res://checkpoint.gd" id="2_r6hke"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tnhlw"]
+radius = 1.8260409
+
+[node name="savething" instance=ExtResource("1_luqgl")]
+script = ExtResource("2_r6hke")
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_tnhlw")
