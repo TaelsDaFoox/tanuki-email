@@ -10,33 +10,49 @@ var move_angle : = 0.0
 @export var mouseSensitivity := 0.005
 @onready var playermodel = $PlayerModel
 @onready var animator = $PlayerModel/AnimationPlayer
+@onready var warptimer = $WarpAnimTimer
 var astralprojecting = false
 var dashesleft := 2
+var playermaterial = load("res://materials/PlayerOrange.tres")
+var glow = 0
 #var dashing := false
 @export var maxdashes :=2
 var currentdashtype :=0
 var input_dir = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	#playermodel.get_node("Armature/Skeleton3D/Head").set_surface_override_material(0, load("res://materials/green digital.tres"))
 	if animator:
-		if velocity.length()>0.1:
-			animator.play("Walk",0.2,velocity.length()/8)
+		if astralprojecting or not warptimer.is_stopped():
+			animator.play("Warp",0.5,1)
 		else:
-			animator.play("Idle",0.2,1)
-	var lerpdist = 5
+			if is_on_floor():
+				if velocity.length()>0.1:
+					animator.play("Walk",0.5,velocity.length()/8)
+				else:
+					animator.play("Idle",0.2,1)
+			else:
+				if velocity.y>0:
+					animator.play("Jump",0.5,1)
+				else:
+					animator.play("Fall",0.5,1)
+	var lerpdist = 8
 	if not astralprojecting:
 		input_dir = Input.get_vector("left","right","forward","backward",0.5)
 		playermodel.scale.y = move_toward(playermodel.scale.y,0.6,delta*lerpdist)
 		playermodel.scale.x = move_toward(playermodel.scale.x,0.6,delta*lerpdist)
 		playermodel.scale.z = move_toward(playermodel.scale.z,0.6,delta*lerpdist)
+		glow = move_toward(glow,0,delta*lerpdist/1.5)
 	else:
 		playermodel.scale.y = move_toward(playermodel.scale.y,1.2,delta*lerpdist)
 		playermodel.scale.x = move_toward(playermodel.scale.x,0,delta*lerpdist)
 		playermodel.scale.z = move_toward(playermodel.scale.z,0,delta*lerpdist)
+		glow = move_toward(glow,1,delta*lerpdist*3)
+	playermaterial.emission_energy_multiplier=glow
 	if input_dir:
 		#move_angle = lerp_angle(move_angle,input_dir.angle()+camPivot.rotation.y,delta*10)
 		move_angle = input_dir.angle()-camPivot.rotation.y
-		playermodel.rotation.y=lerp_angle(playermodel.rotation.y,-move_angle+PI/2,delta*20)
+		playermodel.rotation.y=lerp_angle(playermodel.rotation.y,-move_angle+PI/2,delta*15)
 	momentum = move_toward(momentum, input_dir.length()*topSpeed,accel*delta)
 	if astralprojecting:
 		if currentdashtype==0:
@@ -75,6 +91,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			if dashesleft>0 and not astralprojecting:
 				dashesleft-=1
+				warptimer.start()
 				if input_dir:
 					currentdashtype=0
 				else:

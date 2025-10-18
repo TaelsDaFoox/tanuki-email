@@ -4151,6 +4151,13 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://materials/PlayerOrange.tres",
+"use_external/path": "uid://cd54cnqa7sycg"
+}
 }
 }
 gltf/naming_version=2
